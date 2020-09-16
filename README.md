@@ -18,7 +18,6 @@ Images were acquired across nine different seagrass beds in Moreton Bay, over fo
  
 ## Preparing the Dataset
 It is assumed that the images used are 4624 x 2600 pixels.  The dataset is first prepared by dividing each image into a grid of 5 rows and 8 columns - this yields patches of 578 x 520 pixels for training. The training and validation datasets are also created at this stage.
-Fixed_Dataset_Generation.py
 
 ## Setup
 We suggest using the Annaconda package manager to install dependencies.
@@ -37,18 +36,26 @@ We suggest using the Annaconda package manager to install dependencies.
 The approach takes the pre-trained weights of VGG16 on the ImageNet classification task.  The final Dense layers are removed and replaced with a decoder module trained on the DeepSeagrass dataset.  It is possible to deploy our trained model for inference or use our training script to train on a dataset of your own patches. 
 
 Run the training script using:
+
 ```python train.py```
+
 You can alter the number of classes and the batch size, for example:
+
 ```python train.py --batch_size=32 --num_classes=4```
 
-A csv file is generated to store relevant class-specific metrics from training.  The model is saved.
+A csv file is generated to store relevant class-specific metrics from training.  The model is saved as save.tf.
 
 ## Evaluate the Model
 The trained model can be reloaded and used on a test dataset using:
+
 ```python train.py --num_classes=4 --metrics=True --save_incorrect=True --visualise_inferences=True```
+
 If the metrics flag is true, then a confusion matrix and accuracy metrics will be printed.  The save_incorrect flag can be used to save patches which are incorrectly classified.  When the patch is saved, the correct label and the inferred label are recorded in the name of the image.  If visualise_inferences is true, then the model can be used on a folder of whole images.  In this case, the script will infer on patches in the image and then an output image in which the class is visualised as a colour mask on the original image.  Yellow is for the strappy class, blue is used for the rounded class, red is used for the ferny class and pink represents background.
 
 For example:
 
 
 ![Output Image using visualise_inferences](images/output_image.jpg)
+
+## Pre-Trained Models
+The best performing model reported in our paper is provided.  This model is trained to infer on image patches of 578 x 520 pixels.  Additionally, we provide the best performing model for a patch size of 289 x 260 pixels.  We found that there was an improvement in the accuracy when the 'Background' class was divided into 'Water' column and 'Substrate'.  We additionally provide a pre-trained model for this 5-class case. 
