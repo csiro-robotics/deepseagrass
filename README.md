@@ -12,7 +12,9 @@ ARXIV REFERENCE HERE (2020). Multi-species seagrass detection and classification
 ```
 
 ## DeepSeagrass
-This dataset was collected over nine sites in Moreton Bay, Queensland, over four days in February 2020. A biologist snorkelled in approximately 1m of water during low to mid tide. Images were taken using a Sony Action Cam FDR-3000X from approximately 0.5m off the seafloor at an oblique angle of approximately 45 degrees. Over 12000 high-resolution (4624 x 2600 pixels) seagrass images were obtained, prioritising beds with only one seagrass type and ensuring to take images of bare substrate.  The images were sorted into their seagrass type and then divided into three categories (dense, medium, sparse) according to the density of seagrass present.  High-level morphological features (Strappy, Ferny and Rounded) were used to describe the type of seagrass in the frame. Only the dense images were used to train the models described here.  Images were labelled using folders.
+Images were acquired across nine different seagrass beds in Moreton Bay, over four days during February 2020. Search locations were chosen according to distributions reported in the publicly available dataset. A biologist made a search of each area, snorkelling in approximately 1m of water during low to mid tide. In-situ search of seagrass beds resulted in 78 distinct geographic sub-areas, each containing one particular seagrass morphotype (or bare substrate).  Images were taken using a Sony Action Cam FDR-3000X from approximately 0.5m off the seafloor at an oblique angle of around 45 degrees. Over 12000 high-resolution (4624 x 2600 pixels) images were obtained. 
+ 
+![Dataset distinct seagrass](images/seagrass_map.png)
  
 ## Preparing the Dataset
 It is assumed that the images used are 4624 x 2600 pixels.  The dataset is first prepared by dividing each image into a grid of 5 rows and 8 columns - this yields patches of 578 x 520 pixels for training. The training and validation datasets are also created at this stage.
@@ -47,4 +49,6 @@ The trained model can be reloaded and used on a test dataset using:
 If the metrics flag is true, then a confusion matrix and accuracy metrics will be printed.  The save_incorrect flag can be used to save patches which are incorrectly classified.  When the patch is saved, the correct label and the inferred label are recorded in the name of the image.  If visualise_inferences is true, then the model can be used on a folder of whole images.  In this case, the script will infer on patches in the image and then an output image in which the class is visualised as a colour mask on the original image.  Yellow is for the strappy class, blue is used for the rounded class, red is used for the ferny class and pink represents background.
 
 For example:
+
+
 ![Output Image using visualise_inferences](images/output_image.jpg)
