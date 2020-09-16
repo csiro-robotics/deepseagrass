@@ -1,6 +1,5 @@
-# Repository for Deep Seagrass dataset, training models and original paper.
+# Repository for DeepSeagrass Dataset, Training Models and Original Paper.
 
-# Multi-Seagrass
 The official repository for the paper: Multi-species Seagrass Detection and Classification from Underwater Images
 
 This repository provides the steps and code to train and deploy deep learning models for detection and classification of multiple species of seagrass from underwater images.  It also contains our 'DeepSeagrass' dataset, codes and pre-trained models.
