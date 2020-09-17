@@ -19,17 +19,13 @@ Images were acquired across nine different seagrass beds in Moreton Bay, over fo
 It is assumed that the images used are 4624 x 2600 pixels.  The dataset is first prepared by dividing each image into a grid of 5 rows and 8 columns - this yields patches of 578 x 520 pixels for training. The training and validation datasets are also created at this stage.
 
 ## Setup
-We suggest using the Annaconda package manager to install dependencies.
+We suggest using the Anaconda package manager to install dependencies.
 
 1. Download Anaconda
 2. Create a coda environment: conda create -n deepseagrass pip
 3. Activate the environment: conda activate deepseagrass
-4. Install tensorflow: pip install tensorflow
-5. Install opencv: conda install opencv
-6. Install imgaug: pip install imgaug
-7. Install sklearn: pip install sklearn
-8. Install matplotlib: pip install matplotlib
-9. Clone the adaptive learning rate scheduler and rolling buffer files from: https://github.com/microfossil/particle-classification/blob/master/miso/training/adaptive_learning_rate.py
+4. Install packages and libraries: pip install -r requirements.txt
+5. Clone the adaptive learning rate scheduler and rolling buffer files from: https://github.com/microfossil/particle-classification/blob/master/miso/training/adaptive_learning_rate.py
 
 ## Train the Model
 The approach takes the pre-trained weights of VGG16 on the ImageNet classification task.  The final Dense layers are removed and replaced with a decoder module trained on the DeepSeagrass dataset.  It is possible to deploy our trained model for inference or use our training script to train on a dataset of your own patches. 
@@ -92,4 +88,4 @@ The file structure is the same as for training (above), except that test patches
 Note: evaluate_model.py file for 289x260 pixel model will be uploaded soon. 
 
 ## Pre-Trained Models
-The best performing model reported in our paper is provided.  This model is trained to infer on image patches of 578 x 520 pixels.  Additionally, we provide the best performing model for a patch size of 289 x 260 pixels.  We found that there was an improvement in the accuracy when the 'Background' class was divided into 'Water' column and 'Substrate'.  We additionally provide a pre-trained model for this 5-class case. Th 5-class model is only provided for 578 x 520 pixel patches.  The pre-trained models can be downloaded [here](https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE). 
+The best performing model reported in our paper is provided.  This model is trained to infer on image patches of 578 x 520 pixels.  Additionally, we provide the best performing model for a patch size of 289 x 260 pixels.  We found that there was an improvement in the accuracy when the 'Background' class was divided into 'Water' column and 'Substrate'.  We additionally provide a pre-trained model for this 5-class case. The 5-class model is only provided for 578 x 520 pixel patches.  The pre-trained models can be downloaded [here](https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE). 
