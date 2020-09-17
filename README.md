@@ -43,7 +43,7 @@ You can alter the number of classes and the batch size, for example:
 ```python train.py --batch_size=32 --num_classes=4```
 
 A csv file is generated to store relevant class-specific metrics from training.  The model is saved as save.tf.
-The script assumes that the training images are stored in the following file structure, where the folder names act as the image patch labels:
+The script assumes that the training images are stored in the following file structure, where the folder names act as the image patch labels.  The script will automatically randomly assign 80% of these images for training the model and 20% for validation.
 ```
     train
     ├── Strappy
