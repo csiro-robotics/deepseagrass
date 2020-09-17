@@ -44,6 +44,7 @@ You can alter the number of classes and the batch size, for example:
 
 A csv file is generated to store relevant class-specific metrics from training.  The model is saved as save.tf.
 The script assumes that the training images are stored in the following file structure, where the folder names act as the image patch labels:
+```
     train
     ├── Strappy
     │   ├── Image0_Row1_Col0.jpg
@@ -69,6 +70,7 @@ The script assumes that the training images are stored in the following file str
         ├── Image2679_Row1_Col2.jpg
         ├── .
         └── .
+```
 
 ## Evaluate the Model
 The trained model can be reloaded and used on a test dataset using:
