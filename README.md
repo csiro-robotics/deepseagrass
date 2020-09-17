@@ -43,18 +43,49 @@ You can alter the number of classes and the batch size, for example:
 ```python train.py --batch_size=32 --num_classes=4```
 
 A csv file is generated to store relevant class-specific metrics from training.  The model is saved as save.tf.
+The script assumes that the training images are stored in the following file structure, where the folder names act as the image patch labels:
+    train
+    ├── Strappy
+    │   ├── Image0_Row1_Col0.jpg
+    │   ├── Image0_Row1_Col1.jpg
+    │   ├── Image0_Row1_Col2.jpg
+    │   ├── .
+    │   ├── .
+    ├── Ferny
+    │   ├── Image1_Row1_Col0.jpg
+    │   ├── Image1_Row1_Col1.jpg
+    │   ├── Image1_Row1_Col2.jpg
+    │   ├── .
+    │   ├── .
+    ├── Rounded
+    │   ├── Image50_Row1_Col0.jpg
+    │   ├── Image50_Row1_Col1.jpg
+    │   ├── Image50_Row1_Col2.jpg
+    │   ├── .
+    │   ├── .
+    └── Background
+        ├── Imag2679e_Row1_Col0.jpg
+        ├── Image2679_Row1_Col1.jpg
+        ├── Image2679_Row1_Col2.jpg
+        ├── .
+        └── .
 
 ## Evaluate the Model
 The trained model can be reloaded and used on a test dataset using:
 
+```python evaluate_model.py --num_classes=4``` 
+
+This script has three optional flags which can be used to change the output of the script:
+
 ```python evaluate_model.py --num_classes=4 --metrics=True --save_incorrect=True --visualise_inferences=True```
 
-If the metrics flag is true, then a confusion matrix and accuracy metrics will be printed.  The save_incorrect flag can be used to save patches which are incorrectly classified.  When the patch is saved, the correct label and the inferred label are recorded in the name of the image.  If visualise_inferences is true, then the model can be used on a folder of whole images.  In this case, the script will infer on patches in the image and then an output image in which the class is visualised as a colour mask on the original image.  Yellow is for the strappy class, blue is used for the rounded class, red is used for the ferny class and pink represents background.
+If the metrics flag is true, then a class-wise confusion matrix and accuracy metrics will be printed.  The save_incorrect flag can be used to save patches which are incorrectly classified.  When the patch is saved, the correct label and the inferred label are recorded in the name of the image.  If visualise_inferences is true, then the model can be used on a folder of whole images.  In this case, the script will infer on patches in the image and then an output image in which the class is visualised as a colour mask on the original image.  Yellow is for the strappy class, blue is used for the rounded class, red is used for the ferny class and pink represents background.
 
 For example:
 
-
 ![Output Image using visualise_inferences](images/output_image.jpg)
 
+The file structure is the same as for training (above), except that test patches are stored in a folder called 'test'.  If you intend to use the script to infer on whole images, these images should be stored in another folder called 'test_visualisations'.
+
 ## Pre-Trained Models
-The best performing model reported in our paper is provided.  This model is trained to infer on image patches of 578 x 520 pixels.  Additionally, we provide the best performing model for a patch size of 289 x 260 pixels.  We found that there was an improvement in the accuracy when the 'Background' class was divided into 'Water' column and 'Substrate'.  We additionally provide a pre-trained model for this 5-class case. This model is only provided for 578 x 520 pixel patches.
+The best performing model reported in our paper is provided.  This model is trained to infer on image patches of 578 x 520 pixels.  Additionally, we provide the best performing model for a patch size of 289 x 260 pixels.  We found that there was an improvement in the accuracy when the 'Background' class was divided into 'Water' column and 'Substrate'.  We additionally provide a pre-trained model for this 5-class case. Th 5-class model is only provided for 578 x 520 pixel patches.
