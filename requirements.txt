@@ -1,0 +1,6 @@
+###### Requirements without Version Specifiers ######`
+tensorflow
+sklearn
+matplotlib
+opencv-python
+imgaug
