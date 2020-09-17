@@ -89,5 +89,7 @@ For example:
 
 The file structure is the same as for training (above), except that test patches are stored in a folder called 'test'.  If you intend to use the script to infer on whole images, these images should be stored in another folder called 'test_visualisations'.
 
+Note: evaluate_model.py file for 289x260 pixel model will be uploaded soon. 
+
 ## Pre-Trained Models
-The best performing model reported in our paper is provided.  This model is trained to infer on image patches of 578 x 520 pixels.  Additionally, we provide the best performing model for a patch size of 289 x 260 pixels.  We found that there was an improvement in the accuracy when the 'Background' class was divided into 'Water' column and 'Substrate'.  We additionally provide a pre-trained model for this 5-class case. Th 5-class model is only provided for 578 x 520 pixel patches.  The pre-trained models can be downloaded [here] (https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE). 
+The best performing model reported in our paper is provided.  This model is trained to infer on image patches of 578 x 520 pixels.  Additionally, we provide the best performing model for a patch size of 289 x 260 pixels.  We found that there was an improvement in the accuracy when the 'Background' class was divided into 'Water' column and 'Substrate'.  We additionally provide a pre-trained model for this 5-class case. Th 5-class model is only provided for 578 x 520 pixel patches.  The pre-trained models can be downloaded [here](https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE). 
