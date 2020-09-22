@@ -1,5 +1,6 @@
 # Repository for DeepSeagrass Dataset, Training Models and Original Paper.
 
+
 The official repository for the paper: Multi-species Seagrass Detection and Classification from Underwater Images
 
 This repository provides the steps and code to train and deploy deep learning models for detection and classification of multiple species of seagrass from underwater images.  It also contains our 'DeepSeagrass' dataset, codes and pre-trained models.
@@ -9,7 +10,8 @@ Our approach contributes to the field of automated seagrass detection by disting
 
 ### Paper
 ```
-Scarlett Raine and Ross Marchant and Peyman Moghadam and Frederic Maire and Brett Kettle and Brano Kusy (2020). Multi-species Seagrass Detection and Classification from Underwater Images. ACCEPTED TO DICTA 2020. 
+Scarlett Raine and Ross Marchant and Peyman Moghadam and Frederic Maire and Brett Kettle and Brano Kusy (2020). 
+Multi-species Seagrass Detection and Classification from Underwater Images. ACCEPTED TO DICTA 2020. 
 ```
 ### Paper (bibtex)
 ```
@@ -20,7 +22,8 @@ Scarlett Raine and Ross Marchant and Peyman Moghadam and Frederic Maire and Bret
     eprint={2009.09924},
     archivePrefix={arXiv},
     primaryClass={cs.CV}
-}```
+}
+```
 
 
 ## DeepSeagrass
