@@ -6,9 +6,22 @@ This repository provides the steps and code to train and deploy deep learning mo
 
 ## Paper
 Our approach contributes to the field of automated seagrass detection by distinguishing between different types of seagrass and classifying seagrass on a per-patch basis.  This approach also provides location information about the seagrass in the frame without the need for dense pixel, polygon or bounding box labels.
+
+### Paper
 ```
-ARXIV REFERENCE HERE (2020). Multi-species seagrass detection and classification from underwater images. 
+Scarlett Raine and Ross Marchant and Peyman Moghadam and Frederic Maire and Brett Kettle and Brano Kusy (2020). Multi-species Seagrass Detection and Classification from Underwater Images. ACCEPTED TO DICTA 2020. 
 ```
+### Paper (bibtex)
+```
+@misc{raine2020multispecies,
+    title={Multi-species Seagrass Detection and Classification from Underwater Images},
+    author={Scarlett Raine and Ross Marchant and Peyman Moghadam and Frederic Maire and Brett Kettle and Brano Kusy},
+    year={2020},
+    eprint={2009.09924},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}```
+
 
 ## DeepSeagrass
 Images were acquired across nine different seagrass beds in Moreton Bay, over four days during February 2020. Search locations were chosen according to distributions reported in the publicly available dataset. A biologist made a search of each area, snorkelling in approximately 1m of water during low to mid tide. In-situ search of seagrass beds resulted in 78 distinct geographic sub-areas, each containing one particular seagrass morphotype (or bare substrate).  Images were taken using a Sony Action Cam FDR-3000X from approximately 0.5m off the seafloor at an oblique angle of around 45 degrees. Over 12000 high-resolution (4624 x 2600 pixels) images were obtained. 
