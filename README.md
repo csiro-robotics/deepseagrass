@@ -12,7 +12,7 @@ Scarlett Raine and Ross Marchant and Peyman Moghadam and Frederic Maire and Bret
 Multi-species Seagrass Detection and Classification from Underwater Images. ACCEPTED TO DICTA 2020. 
 ```
 
-# Bibtex
+### Bibtex
 ```
 @misc{raine2020multispecies,
     title={Multi-species Seagrass Detection and Classification from Underwater Images},
@@ -107,7 +107,7 @@ The script assumes that the training images are stored in the following file str
     etc.
 ```
 
-# Evaluate the Model
+### Evaluate the Model
 The trained model can be reloaded and used on a test dataset using:
 
 ```python evaluate_model.py --num_classes=4``` 
