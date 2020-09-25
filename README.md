@@ -107,16 +107,23 @@ The script assumes that the training images are stored in the following file str
     etc.
 ```
 
-### Evaluate the Model
+### Inference / Evaluating the Model
 The trained model can be reloaded and used on a test dataset of image patches using:
+
 ```python inference.py --num_classes=4 --patches``` 
+
 This will automatically produce a class-wise confusion matrix and accuracy metrics.
+
 If the user wants to save the incorrectly classified patches, then use:
+
 ```python inference.py --num_classes=4 --patches --save_incorrect```
+
 When the patch is saved, the correct label and the inferred label are recorded in the name of the image.
 
 If the script is going to be used for whole images, then use:
+
 ```python inference.py --num_classes=4 --whole_frame```
+
 The script will infer on patches in the image.  The script saves the output image, with the inferred classes visualised as a colour mask on the original image.  Yellow is for the strappy class, blue is used for the rounded class, red is used for the ferny class and pink represents background.
 
 For example:
