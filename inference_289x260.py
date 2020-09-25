@@ -86,7 +86,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='User specifies variables.')
     parser.add_argument('--patches', action="store_true", default=False)
     parser.add_argument('--save_incorrect', action="store_true", default=False)
-    parser.add_argument('--whole_frame', action="store_true", default=True)
+    parser.add_argument('--whole_frame', action="store_true", default=False)
 
     args = parser.parse_args()
 
