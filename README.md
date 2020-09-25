@@ -38,7 +38,7 @@ It is assumed that the images used are 4624 x 2600 pixels.  The dataset is first
 We suggest using the Anaconda package manager to install dependencies.
 
 1. Download Anaconda
-2. Create a coda environment: conda create -n deepseagrass pip
+2. Create a coda environment: conda create -n deepseagrass pip python=3.6
 3. Activate the environment: conda activate deepseagrass
 4. Install packages and libraries: pip install -r requirements.txt
 5. Clone the adaptive learning rate scheduler and rolling buffer files from: https://github.com/microfossil/particle-classification/blob/master/miso/training/adaptive_learning_rate.py
