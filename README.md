@@ -108,23 +108,22 @@ The script assumes that the training images are stored in the following file str
 ```
 
 ### Evaluate the Model
-The trained model can be reloaded and used on a test dataset using:
+The trained model can be reloaded and used on a test dataset of image patches using:
+```python inference.py --num_classes=4 --patches``` 
+This will automatically produce a class-wise confusion matrix and accuracy metrics.
+If the user wants to save the incorrectly classified patches, then use:
+```python inference.py --num_classes=4 --patches --save_incorrect```
+When the patch is saved, the correct label and the inferred label are recorded in the name of the image.
 
-```python evaluate_model.py --num_classes=4``` 
-
-This script has three optional flags which can be used to change the output of the script:
-
-```python evaluate_model.py --num_classes=4 --metrics=True --save_incorrect=True --visualise_inferences=True```
-
-If the metrics flag is true, then a class-wise confusion matrix and accuracy metrics will be printed.  The save_incorrect flag can be used to save patches which are incorrectly classified.  When the patch is saved, the correct label and the inferred label are recorded in the name of the image.  If visualise_inferences is true, then the model can be used on a folder of whole images.  In this case, the script will infer on patches in the image and then an output image in which the class is visualised as a colour mask on the original image.  Yellow is for the strappy class, blue is used for the rounded class, red is used for the ferny class and pink represents background.
+If the script is going to be used for whole images, then use:
+```python inference.py --num_classes=4 --whole_frame```
+The script will infer on patches in the image.  The script saves the output image, with the inferred classes visualised as a colour mask on the original image.  Yellow is for the strappy class, blue is used for the rounded class, red is used for the ferny class and pink represents background.
 
 For example:
 
 ![Output Image using visualise_inferences](images/output_image.jpg)
 
-The file structure is the same as for training (above), except that test patches are stored in a folder called 'test'.  If you intend to use the script to infer on whole images, these images should be stored in another folder called 'test_visualisations'.
-
-Note: evaluate_model.py file for 289x260 pixel model will be uploaded soon. 
+The file structure is the same as for training (above), except that test patches are stored in a folder called 'Test'.
 
 <a name="acknowledgements"></a>
 ## Acknowledgements
