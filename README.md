@@ -6,9 +6,8 @@ The official repository for the paper: Multi-species Seagrass Detection and Clas
 This repository provides the steps and code to train and deploy deep learning models for detection and classification of multiple species of seagrass from underwater images.  It also contains our 'DeepSeagrass' dataset, codes and pre-trained models.
 
 ## Paper
-Our approach contributes to the field of automated seagrass detection by distinguishing between different types of seagrass and classifying seagrass on a per-patch basis.  This approach also provides location information about the seagrass in the frame without the need for dense pixel, polygon or bounding box labels.
+Our approach contributes to the field of automated seagrass detection by distinguishing between different types of seagrass and classifying seagrass on a per-patch basis.  This approach also provides location information about the seagrass in the frame without the need for dense pixel, polygon or bounding box labels.  If this repository contributes to your research, please consider citing the publication below.
 
-### Paper
 ```
 Scarlett Raine and Ross Marchant and Peyman Moghadam and Frederic Maire and Brett Kettle and Brano Kusy (2020). 
 Multi-species Seagrass Detection and Classification from Underwater Images. ACCEPTED TO DICTA 2020. 
@@ -24,17 +23,15 @@ Multi-species Seagrass Detection and Classification from Underwater Images. ACCE
     primaryClass={cs.CV}
 }
 ```
+## Table of Contents
+- [Installation](#installation)
+- [DeepSeagrass](#deep-seagrass)
+- [Models](#models)
+- [Getting Started](#getting-started)
+- [Acknowledgements](#acknowledgements)
 
-
-## DeepSeagrass
-Images were acquired across nine different seagrass beds in Moreton Bay, over four days during February 2020. Search locations were chosen according to distributions reported in the publicly available dataset. A biologist made a search of each area, snorkelling in approximately 1m of water during low to mid tide. In-situ search of seagrass beds resulted in 78 distinct geographic sub-areas, each containing one particular seagrass morphotype (or bare substrate).  Images were taken using a Sony Action Cam FDR-3000X from approximately 0.5m off the seafloor at an oblique angle of around 45 degrees. Over 12000 high-resolution (4624 x 2600 pixels) images were obtained. 
- 
-![Dataset distinct seagrass](images/seagrass_map.png)
- 
-## Preparing the Dataset
-It is assumed that the images used are 4624 x 2600 pixels.  The dataset is first prepared by dividing each image into a grid of 5 rows and 8 columns - this yields patches of 578 x 520 pixels for training. The training and validation datasets are also created at this stage.
-
-## Setup
+<a name="installation"></a>
+## Installation
 We suggest using the Anaconda package manager to install dependencies.
 
 1. Download Anaconda
@@ -43,8 +40,28 @@ We suggest using the Anaconda package manager to install dependencies.
 4. Install packages and libraries: pip install -r requirements.txt
 5. Clone the adaptive learning rate scheduler and rolling buffer files from: https://github.com/microfossil/particle-classification/blob/master/miso/training/adaptive_learning_rate.py
 
-## Train the Model
-The approach takes the pre-trained weights of VGG16 on the ImageNet classification task.  The final Dense layers are removed and replaced with a decoder module trained on the DeepSeagrass dataset.  It is possible to deploy our trained model for inference or use our training script to train on a dataset of your own patches. 
+<a name="deep-seagrass"></a>
+## DeepSeagrass
+Images were acquired across nine different seagrass beds in Moreton Bay, over four days during February 2020. Search locations were chosen according to distributions reported in the publicly available dataset. A biologist made a search of each area, snorkelling in approximately 1m of water during low to mid tide. In-situ search of seagrass beds resulted in 78 distinct geographic sub-areas, each containing one particular seagrass morphotype (or bare substrate).  Images were taken using a Sony Action Cam FDR-3000X from approximately 0.5m off the seafloor at an oblique angle of around 45 degrees. Over 12000 high-resolution (4624 x 2600 pixels) images were obtained. 
+ 
+![Dataset distinct seagrass](images/seagrass_map.png)
+ 
+<a name="models"></a>
+## Models
+The best performing model reported in our paper is provided.  This model is trained to infer on image patches of 578 x 520 pixels. Our 578 x 520 pixel model achieved 98.2% to 99.6% precision and 98.0% to 99.7% recall for each class, and an overall accuracy of 98.8% on the validation dataset.  We achieved 88.2% overall accuracy on the DeepSeagrass unseen test set.  We found that there was an improvement in the accuracy when the 'Background' class was divided into 'Water' column and 'Substrate'.  We additionally provide a pre-trained model for this 5-class case. The 5-class model is only provided for 578 x 520 pixel patches. 
+
+Additionally, we provide the best performing model for a patch size of 289 x 260 pixels.  This model can be used for lower resolution test images.
+
+| Number of Classes | Image Patch Size | Accuracy | Model Link |
+|-|-|-|-|
+| 4 Classes | 578x520 pixels | 88.2% on test dataset | [Link](https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE?path=%2F520x578%20model) |
+| 5 Classes | 578x520 pixels | 92.4% on test dataset | [Link](https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE?path=%2F5class_model) |
+| | | |
+| 4 Classes | 289x260 pixels | 94% on validation dataset | [Link]https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE?path=%2F260x289%20model) |
+
+<a name="getting-started"></a>
+## Getting Started
+The approach takes the pre-trained weights of VGG16 on the ImageNet classification task.  The final Dense layers are removed and replaced with a decoder module trained on the DeepSeagrass dataset.  It is possible to deploy our trained model for inference or use our training script to train on a dataset of your own patches.  It is assumed that the images used are 4624 x 2600 pixels. 
 
 Run the training script using:
 
@@ -55,7 +72,7 @@ You can alter the number of classes and the batch size, for example:
 ```python train.py --batch_size=32 --num_classes=4```
 
 A csv file is generated to store relevant class-specific metrics from training.  The model is saved as save.tf.
-The script assumes that the training images are stored in the following file structure, where the folder names act as the image patch labels.  The script will automatically randomly assign 80% of these images for training the model and 20% for validation.
+The script assumes that the training images are stored in the following file structure, where the folder names act as the image patch labels. 
 ```
     train
     ├── Strappy
@@ -82,9 +99,15 @@ The script assumes that the training images are stored in the following file str
         ├── Image2679_Row1_Col2.jpg
         ├── .
         └── .
+ 
+    validate
+    ├── Strappy
+    │   ├── Image0_Row1_Col0.jpg
+    │   ├── Image0_Row1_Col1.jpg
+    etc.
 ```
 
-## Evaluate the Model
+# Evaluate the Model
 The trained model can be reloaded and used on a test dataset using:
 
 ```python evaluate_model.py --num_classes=4``` 
@@ -103,8 +126,6 @@ The file structure is the same as for training (above), except that test patches
 
 Note: evaluate_model.py file for 289x260 pixel model will be uploaded soon. 
 
-## Pre-Trained Models
-The best performing model reported in our paper is provided.  This model is trained to infer on image patches of 578 x 520 pixels.  Additionally, we provide the best performing model for a patch size of 289 x 260 pixels.  We found that there was an improvement in the accuracy when the 'Background' class was divided into 'Water' column and 'Substrate'.  We additionally provide a pre-trained model for this 5-class case. The 5-class model is only provided for 578 x 520 pixel patches.  The pre-trained models can be downloaded [here](https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE). 
-
-## Results
-Our 578 x 520 pixel model achieved 98.2% to 99.6% precision and 98.0% to 99.7% recall for each class, and an overall accuracy of 98.8% on the validation dataset.  We achieved 88.2% overall accuracy on the DeepSeagrass unseen test set.  This was improved to 92.4% overall accuracy when the 'Background' class was separated into classes for 'Substrate' and 'Water Column'.
+<a name="acknowledgements"></a>
+## Acknowledgements
+This work was done in collaboration between CSIRO Data61, CSIRO Oceans and Atmosphere, Babel-sbf and QUT and was funded by CSIRO’s Active Integrated Matter and Machine Learning and Artificial Intelligence (MLAI) Future Science Platform.  S.R., R.M. and F.M. acknowledge continued support from the Queensland University of Technology (QUT) through the Centre for Robotics.
