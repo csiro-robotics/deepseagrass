@@ -57,7 +57,7 @@ Additionally, we provide the best performing model for a patch size of 289 x 260
 | 4 Classes | 578x520 pixels | 88.2% on test dataset | [Link](https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE?path=%2F520x578%20model) |
 | 5 Classes | 578x520 pixels | 92.4% on test dataset | [Link](https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE?path=%2F5class_model) |
 | | | |
-| 4 Classes | 289x260 pixels | 94% on validation dataset | [Link]https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE?path=%2F260x289%20model) |
+| 4 Classes | 289x260 pixels | 94% on validation dataset | [Link](https://cloudstor.aarnet.edu.au/plus/s/nQ6JRNYvKaGqfaE?path=%2F260x289%20model) |
 
 <a name="getting-started"></a>
 ## Getting Started
