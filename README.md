@@ -132,6 +132,8 @@ For example:
 
 The file structure is the same as for training (above), except that test patches are stored in a folder called 'Test'.
 
+A file for using the 289x260 pixel model for inference is also provided.  This script only works for the 4 class case, but uses the same flags as above.
+
 <a name="acknowledgements"></a>
 ## Acknowledgements
 This work was done in collaboration between CSIRO Data61, CSIRO Oceans and Atmosphere, Babel-sbf and QUT and was funded by CSIRO’s Active Integrated Matter and Machine Learning and Artificial Intelligence (MLAI) Future Science Platform.  S.R., R.M. and F.M. acknowledge continued support from the Queensland University of Technology (QUT) through the Centre for Robotics.
