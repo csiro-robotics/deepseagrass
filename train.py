@@ -44,11 +44,8 @@ if __name__ == "__main__":
     IMAGE_BATCH = 1 * NUM_CLASSES  # One image per class
     BATCH_SIZE = args.batch_size
     CLASSES = ["Strappy", "Ferny", "Rounded", "Background"]
-    #TRAIN_PATH = 'Train'
-    TRAIN_PATH = '/datasets/work/d61-pct/work/datasets/aimfsp/vertigo/moreton_bay_2020_02_seagrass/Fixed_Patch_Dataset/Training'
-    #VAL_PATH = 'Validate'
-    VAL_PATH = '/datasets/work/d61-pct/work/datasets/aimfsp/vertigo/moreton_bay_2020_02_seagrass/Fixed_Patch_Dataset/Validate'
-    
+    TRAIN_PATH = 'Train'
+    VAL_PATH = 'Validate'
     
     NUM_ROWS = 5
     NUM_COLS = 8
@@ -100,22 +97,13 @@ if __name__ == "__main__":
     
     print("[INFO] training the head...")
     # train on data
-    # history = model.fit_generator(generator=train_data,
-        # validation_data=val_data,
-        # epochs=EPOCHS,
-        # steps_per_epoch=len(train_data) // BATCH_SIZE, 
-        # validation_steps=len(val_data) // BATCH_SIZE, 
-        # verbose=1,
-        # callbacks=[learning_rate_reduction, csv_logger]
-        # )    
-
     history = model.fit_generator(generator=train_data,
         validation_data=val_data,
-        epochs=1,
+        epochs=EPOCHS,
         steps_per_epoch=len(train_data) // BATCH_SIZE, 
         validation_steps=len(val_data) // BATCH_SIZE, 
         verbose=1,
-        callbacks=[csv_logger]
+        callbacks=[learning_rate_reduction, csv_logger]
         )          
     
     # Save the model to file
