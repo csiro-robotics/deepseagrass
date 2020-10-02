@@ -136,4 +136,4 @@ A file for using the 289x260 pixel model for inference is also provided.  This s
 
 <a name="acknowledgements"></a>
 ## Acknowledgements
-This work was done in collaboration between CSIRO Data61, CSIRO Oceans and Atmosphere, Babel-sbf and QUT and was funded by CSIRO’s Active Integrated Matter and Machine Learning and Artificial Intelligence (MLAI) Future Science Platform.  S.R., R.M. and F.M. acknowledge continued support from the Queensland University of Technology (QUT) through the Centre for Robotics.
+This work was done in collaboration between CSIRO Data61, CSIRO Oceans and Atmosphere, Babel-sbf and QUT and was funded by CSIRO’s Active Integrated Matter and Machine Learning and Artificial Intelligence (MLAI) Future Science Platform. 
