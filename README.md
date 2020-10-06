@@ -2,7 +2,7 @@
 
 
 The official repository for the paper: Multi-species Seagrass Detection and Classification from Underwater Images
-
+\[[arXiv](https://arxiv.org/abs/2009.09924)]. 
 This repository provides the steps and code to train and deploy deep learning models for detection and classification of multiple species of seagrass from underwater images.  It also contains our 'DeepSeagrass' dataset, codes and pre-trained models.
 
 Our approach contributes to the field of automated seagrass detection by distinguishing between different types of seagrass and classifying seagrass on a per-patch basis.  This approach also provides location information about the seagrass in the frame without the need for dense pixel, polygon or bounding box labels.  If this repository contributes to your research, please consider citing the publication below.
