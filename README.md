@@ -102,8 +102,17 @@ The script assumes that the training images are stored in the following file str
  
     validate
     ├── Strappy
-    │   ├── Image0_Row1_Col0.jpg
-    │   ├── Image0_Row1_Col1.jpg
+        ├── Image0_Row1_Col0.jpg
+        ├── Image0_Row1_Col1.jpg
+        ├── .
+        └── .
+    
+    test
+    ├── Strappy
+        ├── Image0_Row1_Col0.jpg
+        ├── Image0_Row1_Col1.jpg
+        ├── .
+        └── .
     etc.
 ```
 
