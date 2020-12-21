@@ -42,7 +42,9 @@ We suggest using the Anaconda package manager to install dependencies.
 
 <a name="deep-seagrass"></a>
 ## DeepSeagrass
-Images were acquired across nine different seagrass beds in Moreton Bay, over four days during February 2020. Search locations were chosen according to distributions reported in the publicly available dataset. A biologist made a search of each area, snorkelling in approximately 1m of water during low to mid tide. In-situ search of seagrass beds resulted in 78 distinct geographic sub-areas, each containing one particular seagrass morphotype (or bare substrate).  Images were taken using a Sony Action Cam FDR-3000X from approximately 0.5m off the seafloor at an oblique angle of around 45 degrees. Over 12000 high-resolution (4624 x 2600 pixels) images were obtained. 
+Images were acquired across nine different seagrass beds in Moreton Bay, over four days during February 2020. Search locations were chosen according to distributions reported in the publicly available dataset. A biologist made a search of each area, snorkelling in approximately 1m of water during low to mid tide. In-situ search of seagrass beds resulted in 78 distinct geographic sub-areas, each containing one particular seagrass morphotype (or bare substrate).  Images were taken using a Sony Action Cam FDR-3000X from approximately 0.5m off the seafloor at an oblique angle of around 45 degrees. Over 12000 high-resolution (4624 x 2600 pixels) images were obtained. The images containing 'dense' seagrass were then processed into patches.  These patches were used to train our models.
+
+The dataset is available for download from the CSIRO data portal at: https://doi.org/10.25919/spmy-5151.  Additional information about the dataset can be found in the accompanying file 'DeepSeagrass Dataset File' found at the same link.  The dataset contains necessary information and images for the 5-class classifier discussed in our paper, however it is not available at the 289 x 260 patch size.
  
 ![Dataset distinct seagrass](images/seagrass_map.png)
  
